@@ -19,6 +19,7 @@ o = name.count('o')
 v = name.count('v')
 e = name.count('e')
 
+
 love = l + o + v + e
 print("LOVE Score is " ,love)
 print(l,o,v,e,love)
