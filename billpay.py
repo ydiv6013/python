@@ -1,5 +1,6 @@
 import random as rand
-#
+
+#  this program takes a name of string seprated with comma and give you a random  name from the list
 
 name = input("Please Enter a person name seperated by comma(,) : ")
 name_list = name.split(',')
