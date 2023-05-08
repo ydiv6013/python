@@ -11,9 +11,22 @@ def person(name):
 #function with multiple parameter
 
 def person_age(name,age):
-    print(f"name is {name} and age is {age}")
+    return(f"name is {name} and age is {age}")
+    print("this will be never printed as return statement ends the function")
 
-name = input("Please enter your name :" )
+
+
+def func_return(name,age) :
+    #docstring
+    """please enter the name and age ,name must be in string and age in integer"""
+    if name == "" :
+        return "Please enter name "
+    elif age == "":
+        return "please enter age"
+    else :
+        return(f"name is {name} and age is {age}")
+
+name = input("Please enter your name :" ).title()
 age = int(input("please enter your age : "))
 
 
@@ -22,5 +35,7 @@ greet()
 #function call with one argument
 person(name)
 #function call with multiple argument
-person_age(name,age)
+func_return =func_return(input("name"),input("age"))
+print(func_return)
 person_age(age=age,name=name)
+
