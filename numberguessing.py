@@ -1,18 +1,25 @@
 import random
 
-
-number = random.randint(0,1)
-
 print("Welcome to the number guessing game")
 print("I am thinking of number between 1 to 50")
+
+attempt_easy = 10
+attempt_hard = 5
+count = 0
+guess = {}
+
 level=int(input("""Please choose your level,easy or hard
 easy = 1
 hard = 2 :
 """
  ))
+if level == 1 :
+    count = attempt_easy
+    print("count is ",count)
+else :
+    count = attempt_hard
+    print("count is ",count)
 
-attempt_easy = 10
-attempt_hard = 5
 
 
 number = random.randint(1,51)
