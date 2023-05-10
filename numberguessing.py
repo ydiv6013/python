@@ -6,7 +6,10 @@ print("I am thinking of number between 1 to 50")
 attempt_easy = 10
 attempt_hard = 5
 count = 0
-guess = {}
+guess = {
+    "guessed_number": '',
+}
+next = True
 
 level=int(input("""Please choose your level,easy or hard
 easy = 1
@@ -26,11 +29,26 @@ number = random.randint(1,51)
 
 print(number)
 
-guessed_number =int(input("Make a guess"))
+while next :
+    print("next is ", next)
+    if count > 0:
+        guessed_number =int(input("Make a guess"))
+        if guessed_number == number :
+            print(f"Welldon, number is {number}")
+            guess["guessed_number"] = guessed_number
+            next = False
+        elif guessed_number > number  :
+            print("Too high")
+            guess["guessed_number"] = guessed_number
+            count = count - 1
+            print("count is " , count)
+        elif guessed_number < number :
+            print("Too Low")
+            guess["guessed_number"] = guessed_number
+            count = count - 1
+            print("count is " , count)
+    else :
+        print("No count left ,Betterluck nexttime!")
 
-if guessed_number == number :
-    print(f"Welldon, number is {number}")
-elif guessed_number > number  :
-    print("Too high")
-elif guessed_number < number :
-    print("Too Low")
+print(count)
+print(guess)
