@@ -51,21 +51,28 @@ class Employee (Person):
             for x in line :
                 try:
                     value= x.split(',')
-                    print(value[4])
+                    emp_email = value[4] + "\n"
+                    print(emp_email)
+                    with open("employee_email.txt" , "a") as file :
+                        file.write(emp_email)
+                        
                 except:
                     print("No more record found")
+                    exit()
                 
     def isEmployee(self):
         return True
     
 
-#name = input("Please enter your name : ")
-#emp_id = input("Please enter your employee id : ")
-#salary = input("Please enter your currant salary : ")
-#age = input("Please enter your current age : ")
-#email = input("please enter your email id : ")
-employee = Employee("a",12,234,45,"a@vn.com")
-#employee = Employee(name,emp_id,salary,age,email)
+name = input("Please enter your name : ")
+emp_id = input("Please enter your employee id : ")
+salary = input("Please enter your currant salary : ")
+age = input("Please enter your current age : ")
+email = input("please enter your email id : ")
+
+employee = Employee(name,emp_id,salary,age,email)
 #employee.display()
-#employee.insertFile()
+employee.insertFile()
 employee.getEmail()
+
+

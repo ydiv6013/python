@@ -25,3 +25,5 @@ brook,12,90000,23,brook.srh@gmail.com|
 python,45,56400,45,python@gmail.com|
 karn,18,12200,23,karn.sharma@gmail.com|
 dinesh,67,54900,33,dinesh.kartik@gmail.com|
+phillipse,59,34500,22,phillipse@gmail.com|
+faf,45,23000,34,faf@outllok.com|
