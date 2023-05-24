@@ -1,8 +1,8 @@
-import pandas
+import pandas as pd
 
 
 try :
-    data = pandas.read_csv("files/Central_Park_Squirrel_Census_Squirrel_Data.csv")
+    data = pd.read_csv("files/Central_Park_Squirrel_Census_Squirrel_Data.csv")
 except:
     print("No such file found")
 
@@ -26,7 +26,7 @@ print(data_dict)
 
 # create a csv file 
 
-dataframe = pandas.DataFrame(data_dict)
+dataframe = pd.DataFrame(data_dict)
 print(dataframe)
 
 try :

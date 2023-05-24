@@ -11,7 +11,7 @@ class Weathercsv :
         temprature = []
         temprature1 = []
         try:
-            filehandler = open("weather_data.csv")
+            filehandler = open("files/weather_data.csv")
             content = csv.reader(filehandler)
             for row in content :
                 print(row)
@@ -33,7 +33,7 @@ class Weather :
 
     def readWeatherData(self):
         try :
-            filehandler = open("weather_data.csv")
+            filehandler = open("files/weather_data.csv")
             content = filehandler.read()
             data = content.split()
             for row in data:
@@ -49,7 +49,7 @@ class WeatherPandas:
     def __init__(self) -> None:
          pass
     def readPandascsv(self):
-        data = pandas.read_csv("weather_data.csv")
+        data = pandas.read_csv("files/weather_data.csv")
         print(data)
         print("Temprature is :\n",data["temp"])
         print("Day is :\n",data["day"])
@@ -96,7 +96,7 @@ class WeatherPandas:
 
     def ctoh(self):
         # convert Celsius to Fahrenheit
-        data = pandas.read_csv("weather_data.csv")
+        data = pandas.read_csv("files/weather_data.csv")
         celsius = data["temp"].to_list()
         fahrenheit_list =[]
         for x in celsius :
