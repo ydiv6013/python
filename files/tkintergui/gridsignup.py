@@ -132,5 +132,4 @@ btn.grid(column=1,row=10)
 
 
 window.mainloop()
-exit()
 
