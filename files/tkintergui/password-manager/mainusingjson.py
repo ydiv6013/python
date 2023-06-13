@@ -2,19 +2,8 @@ from tkinter import *
 import random
 from tkinter import messagebox
 import pyperclip
+import json
 
-
-import wx
-app = wx.App()
-window = wx.Frame(None, title = "wxPython Frame", size = (300,200))
-panel = wx.Panel(window)
-label = wx.StaticText(panel, label = "Hello World", pos = (100,50))
-window.Show(True)
-app.MainLoop()
-
-
-
-exit()
 # ---------------------------- Constant ------------------------------- #
 
 FONT = "Courier"
@@ -24,7 +13,7 @@ def genPassword():
     old_pwd = pwd_input.get()
 
     special_chars = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', 
-                 '[', ']', '{', '}', '|', '\\', ';', ':', '\'', '\"', ',', '<', '.', '>', '/', '?']
+                 '[', ']', '{', '}', '|', '\\', ';', ':', '\'', ',', '<', '.', '>', '/', '?']
 
     alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 
              'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
@@ -56,10 +45,15 @@ def saveData():
     website = web_input.get()
     email = email_input.get()
     password = pwd_input.get()
-    data = website + "|" + email + "|" + password + "\n"
+    #data = website + "|" + email + "|" + password + "\n"
+    
+    data = {
+        website : {
+            "email" : email,
+            "password" : password
+        }
+    }
 
-    
-    
     response = messagebox.askokcancel(title="Verifty entered details" ,message=f"website : {website}\n email : {email}\n password : {password}")
     if response :
         new =Label()
@@ -71,21 +65,54 @@ def saveData():
             pwd_resp = messagebox.showerror(title="pwd Validation" , message="Please enter password")
         
         if len(website) & len(email) & len(password) > 0 :
+
+            
             try :
-                with open("files/password-manager/data.txt", "+a") as file :
-                    file.write(data)
-                    web_input.delete(0,END)
-                    email_input.delete(0,END)
-                    pwd_input.delete(0,END)
-                    new.config(text="Record added successfully.",fg="green")
-                    new.grid(row=7)
-            except :
-                
-                new.config(text="Opps ! something went wrong." ,fg="red")
+                with open("files/tkintergui/password-manager/data.json","+r") as file :
+                    old_data = json.load(file)
+                    old_data.update(data)
+                      
+                with open("files/tkintergui/password-manager/data.json","+w") as file :
+                    json.dump(old_data,file,indent=4)
+    
+            except FileNotFoundError as error:
+                # block executed if try block caused exception
+                new.config(text=f"{error}Opps ! something went wrong." ,fg="red")
                 new.grid(row=7)
+            else :
+                 # block executed if try block not caused exception
+                web_input.delete(0,END)
+                email_input.delete(0,END)
+                pwd_input.delete(0,END)
+                new.config(text="Record added successfully.",fg="green")
+                new.grid(row=7)
+            finally :
+                print("All works well")
 
 
-    print(website,email,password)
+
+
+# ---------------------------- RETRIEVE PASSWORD ------------------------------- #
+def retrieveData():
+            searchlable = Label()
+            website =web_input.get()
+            try :
+                with open("files/tkintergui/password-manager/data.json","+r") as file :
+                    # read json data
+                    data = json.load(file)
+
+                    if data[website] :
+                        email_input.delete(0,END)
+                        pwd_input.delete(0,END)
+                        email_input.insert(0,data[website]['email'])
+                        pwd_input.insert(0,data[website]['password'])
+                    
+            except FileNotFoundError as error:
+                # block executed if try block caused exception
+                searchlable.config(text=f"{error}Opps ! something went wrong." ,fg="red")
+                searchlable.grid(column=1,row=9)
+
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -97,7 +124,7 @@ window.config(padx=20,pady=20,bg="white")
 
 canvas = Canvas()
 canvas.config(width=250,height=250,highlightthickness=0,bg="white")
-image_url = PhotoImage(file="files/password-manager/logo.png")
+image_url = PhotoImage(file="files/tkintergui/password-manager/logo.png")
 canvas.create_image(125,125,image=image_url)
 canvas.grid(column=1,row=0)
 
@@ -112,6 +139,10 @@ web_input =Entry()
 web_input.config(text="Enter Website Name ",fg="black",bg="white",width=30, highlightthickness=0,highlightbackground="white")
 web_input.focus()
 web_input.grid(column=1,row=2,columnspan=2)
+
+search = Button()
+search.config(text="search" ,command=retrieveData,fg="black",bg="white",highlightthickness=0,width=15,highlightbackground="white")
+search.grid(column=2,row=2)
 
 
 
@@ -146,5 +177,8 @@ pwd_gen.grid(column=2,row=5)
 save = Button()
 save.config(text="Save",command=saveData,fg="black",bg="white",highlightthickness=0,width=15,highlightbackground="white")
 save.grid(column=1,row=5)
-window.mainloop()
 
+
+
+
+window.mainloop()
