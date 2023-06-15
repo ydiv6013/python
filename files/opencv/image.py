@@ -26,7 +26,7 @@ gray =cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 rgb = cv.cvtColor(img,cv.COLOR_BGR2RGB)
 
 #This is using for display the image  
-cv.imshow("Images", rgb)
+cv.imshow("Images coca", rgb)
 
 
 
@@ -101,7 +101,15 @@ k = cv.waitKey(0)
 ## [imsave]
 
 
+# image manipulation 
+#draw line image object,staring point and ending point,color in bgr ,thickness
+
+newimage = cv.line(img,(100,100),(600.600),(255,0,0) ,5) 
+
+cv.imshow('line image',newimage)
+
 if k == ord("s"):
     cv.imwrite("files/opencv/starry_night.jpg",copy_img)
+
 cv.destroyAllWindows()  
 
