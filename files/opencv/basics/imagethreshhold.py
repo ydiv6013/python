@@ -32,7 +32,7 @@ else :
     print(ret3)
     cv.imshow("Threshhold image3",thresh3)
 
-
+    cv.INT
 
     # newspaper
 

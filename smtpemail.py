@@ -2,14 +2,14 @@
 
 import  smtplib as smtp
 
-mail_server ="smtp.gmail.com"
-mail_port = 465
+mail_server =""
+mail_port = 
 mail_uname ="yogesh.dhameliya6013@gmail.com"
-mail_pwd = "ezoyfzbfgnyrower"
+mail_pwd = ""
 mail_sender = "yogesh.dhameliya6013@gmail.com"
 mail_receiver = "yogesh.dhameliya@outlook.com"
 mail_msg = "Subject : Python email \n\nPython smtp mail works"
-# gmail app pwd = ezoyfzbfgnyrower
+# gmail app 
 
 try :
     # connection is the smtp mail object
