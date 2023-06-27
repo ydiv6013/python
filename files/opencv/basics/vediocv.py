@@ -56,8 +56,8 @@ while (video.isOpened()) :
 
         if key == ord('q'):
             break
-    else :
-        break
+        else :
+            break
 
 # to release the resources from memory ie camera
 video.release()

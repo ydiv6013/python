@@ -3,7 +3,7 @@
 import  smtplib as smtp
 
 mail_server =""
-mail_port = 
+mail_port = 465
 mail_uname ="yogesh.dhameliya6013@gmail.com"
 mail_pwd = ""
 mail_sender = "yogesh.dhameliya6013@gmail.com"

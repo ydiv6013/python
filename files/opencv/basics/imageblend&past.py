@@ -1,7 +1,7 @@
 import cv2 as cv
 
-img1 = cv.imread("files/opencv/dog.jpg")
-img2 =cv.imread("files/opencv/logo.png")
+img1 = cv.imread("files/opencv/basics/dog.jpg")
+img2 =cv.imread("files/opencv/basics/logo.png")
 
 if img1 is None  or img2 is None:
     print("Opps something went Wrong")
