@@ -18,6 +18,7 @@ def detect_face(img):
     # harcascade frontalface
     face_cascade = cv.CascadeClassifier("files/opencv/object-detection/facedetection/data/haarcascades/haarcascade_frontalface_default.xml")
     face_rectangle = face_cascade.detectMultiScale(face_img)
+    print(face_rectangle)
 
     for (x,y,width,height) in face_rectangle :
         cv.rectangle(face_img,(x,y),(x+width,y+height),color=(0,0,255),thickness=5)
