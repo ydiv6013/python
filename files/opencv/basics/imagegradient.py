@@ -5,8 +5,9 @@ import numpy as np
 img = cv.imread("files/opencv/sudoku.jpeg",0)
 
 if img is None :
-    print("something went wromg!!")
+    print("something went wrong!!")
 else :
+    
     # here dx=1.     
    
     sobelx = cv.Sobel(img,ddepth=cv.CV_64F,dx=1,dy=0,ksize=5)

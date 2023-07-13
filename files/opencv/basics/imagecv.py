@@ -1,7 +1,6 @@
 #importing the opencv module  
 import cv2 as cv
 import sys
-import os
 import numpy as np
 ## [imports]
 

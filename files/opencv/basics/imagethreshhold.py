@@ -20,7 +20,6 @@ else :
 
     #any value of image rainbow_img below thresh will be shifted to 0 and 
     #any value of image rainbow_img above thresh will be shifted to maxval
-    
     ret,thresh1 = cv.threshold(ranbow_img,thresh,maxval,cv.THRESH_BINARY)
     print(ret)
     cv.imshow("Threshhold image",thresh1)
