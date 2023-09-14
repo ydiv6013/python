@@ -36,9 +36,9 @@ def improved_detect_face(img):
     
     return face_img
     
-result =detect_face(solway)
+result =detect_face(nadia)
 cv.imshow("result",result)
-improved_result = improved_detect_face(solway)
+improved_result = improved_detect_face(nadia)
 cv.imshow("improved result",improved_result)
 if cv.waitKey(0) & 0xFF == ord('q'):
     cv.destroyAllWindows()
