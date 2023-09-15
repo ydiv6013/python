@@ -12,8 +12,16 @@ print("month:", month)
 day = now.strftime("%d")
 print("day:", day)
 
-time = now.strftime("%H:%M:%S")
-print("time:", time)
-
 date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
 print("date and time:",date_time)
+
+today_date = now.strftime("%m/%d/%Y")
+print("current date : ",today_date )
+
+current_time = now.strftime("%H:%M:%S")
+print("current time : ",current_time )
+
+
+
+
+    
