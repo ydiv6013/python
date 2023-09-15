@@ -2,9 +2,21 @@
 
 import requests
 from datetime import datetime
+import os
+'''
+# to get environment variable stored in .env 
+# syntax to add variable in .env 
+# export APP_ID=398748hn9
+#https://www.freecodecamp.org/news/python-env-vars-how-to-get-an-environment-variable-in-python/
+NUTRITIONX_APP_ID = os.environ.get("NUTRITIONX_APP_ID")
+NUTRITIONX_API_KEY = os.environ.get("NUTRITIONX_API_KEY")
 
+print(API_KEY)
+'''
 APP_ID = "7deb8bcb"
 API_KEY = "413fc8134641c27cd09eb74fe9d740db"
+
+print(os.environ.get("TERM_PROGRAM"))
 
 excercise = input("which excercise you did today : ")
 

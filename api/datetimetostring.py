@@ -24,4 +24,6 @@ print("current time : ",current_time )
 
 
 
+exit()
+
     
