@@ -13,8 +13,8 @@ NUTRITIONX_API_KEY = os.environ.get("NUTRITIONX_API_KEY")
 
 print(API_KEY)
 '''
-APP_ID = "7deb8bcb"
-API_KEY = "413fc8134641c27cd09eb74fe9d740db"
+APP_ID =""
+API_KEY =""
 
 print(os.environ.get("TERM_PROGRAM"))
 
